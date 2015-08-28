@@ -2,7 +2,7 @@ CROSS_HOST="x86_64-w64-mingw32"
 inherit cross
 
 NAME="mingw64-x86_64-libebml"
-VERSION=1.3.0
+VERSION=1.3.1
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Extensible Binary Meta-Language library for Win64 toolchain"
@@ -12,21 +12,3 @@ variable field lengths."
 HOMEPAGE="http://www.matroska.org/"
 SRC_URI="http://dl.matroska.org/downloads/libebml/libebml-${VERSION}.tar.bz2"
 SRC_DIR="libebml-${VERSION}"
-
-src_compile() {
-	lndirs
-	cd ${B}/make/mingw32
-	cygmake CROSS=${CROSS_HOST}- SHARED=yes
-	rm -f ${B}/src/*.o
-	cygmake CROSS=${CROSS_HOST}- SHARED=no
-}
-
-src_install() {
-	cd ${B}/make/linux
-	cygmake install_headers prefix=${D}${CROSS_PREFIX}
-	cd ${B}/make/mingw32
-	dolib *.a
-	dobin *.dll
-
-	dodoc ${S}/LICENSE.LGPL
-}
