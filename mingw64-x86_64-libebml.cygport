@@ -3,7 +3,7 @@ inherit cross
 
 NAME="mingw64-x86_64-libebml"
 VERSION=1.3.4
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="Extensible Binary Meta-Language library for Win64 toolchain"
 DESCRIPTION="EBML was designed to be a simplified binary extension of XML for
